@@ -51,9 +51,9 @@ class FormApp extends Component {
     return true;
   }
 
-  setFieldValid = (field, value) => {
+  setFieldError = (field, value) => {
     let errors = this.state.errors;
-    errors[field] = !value;
+    errors[field] = value;
     this.setState({errors});
   }
 
@@ -67,14 +67,14 @@ class FormApp extends Component {
               errors={this.state.errors.firstName} 
               fieldName="firstName"
               placeholder="First Name"
-              setError={this.setFieldValid}
+              setError={this.setFieldError}
             />
             <NameField 
               validated={this.state.validated} 
               errors={this.state.errors.lastName} 
               fieldName="lastName"
               placeholder="Last Name"
-              setError={this.setFieldValid}
+              setError={this.setFieldError}
             />
             <GenderPick/>
             <DateField/>
@@ -83,7 +83,7 @@ class FormApp extends Component {
               errors={this.state.errors.email} 
               fieldName="email"
               placeholder="Email address"
-              setError={this.setFieldValid}
+              setError={this.setFieldError}
             />
             <Button type="submit">Submit</Button>
           </Form>

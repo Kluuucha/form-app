@@ -13,7 +13,7 @@ const NameField = ({setError, fieldName, ...props}) => {
     const {valid, validating} = useValidate(value, nameValidator.current)
 
     useEffect(()=>{
-        setError(fieldName, valid)
+        setError(fieldName, !valid)
     }, [setError, fieldName, valid]);
 
     return(
